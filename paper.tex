@@ -1,0 +1,119 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{3dv-2015authorkit/latex/3dv}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+%\threedvfinalcopy % *** Uncomment this line for the final submission
+
+\def\threedvPaperID{****} % *** Enter the 3DV Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+\ifthreedvfinal\pagestyle{empty}\fi
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{A Large-Scale 3D Object Recognition dataset}
+
+\author{Thomas S{\o}lund\\
+Institution1\\
+Institution1 address\\
+{\tt\small firstauthor@i1.org}
+% For a paper whose authors are all at the same institution,
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'',
+% just like the second author.
+% To save space, use either the email address or home page, not both
+\and
+Anders Glent Buch, Norbert Kr\"u{}ger\\
+M\ae{}rsk Mc-Kinney M\o{}ller Institute,\\
+University of Southern Denmark,\\
+DK-5230 Odense, Denmark \\
+{\tt\small anbu,norbert@mmmi.sdu.dk}
+\and
+Knut Conradsen, Henrik Aanæs\\
+Department of Applied Mathematics\\ and Computer Science,\\ 
+Technical University of Denmark\\
+DK-2800 Kgs. Lyngby, Denmark\\
+{\tt\small knco,aanes@dtu.dk}
+}
+
+\maketitle
+% \thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+   The ABSTRACT is to be in fully-justified italicized text, at the top
+   of the left-hand column, below the author and affiliation
+   information. Use the word ``Abstract'' as the title, in 12-point
+   Times, boldface type, centered relative to the column, initially
+   capitalized. The abstract is to be in 10-point, single-spaced type.
+   Leave two blank lines after the Abstract, then begin the main text.
+   Look at previous 3DV abstracts to get a feel for style and length.
+\end{abstract}
+
+%%%%%%%%% BODY TEXT
+\section{Introduction}
+
+
+%-------------------------------------------------------------------------
+\section{Related work}
+The UWA dataset by Mian et.al. \cite{Mian2006}, \cite{Mian2010} is one of the best known datasets for 3D pose estimation algorithm evaluation. The dataset is composed of four full object models and 50 real scenes captures with a laser scanner which containing incomplete instances of the objects. Each scene contains three or four object models which results in much clutter and occlusion. The amount of occlusion and clutter in each scene is not provided. The four object models are generated with a multi-view registration algorithm. Each object model contain more than 100000 mesh vertices and posses good and distinctive shape features with non-uniform surfaces and ambiguities. The object models and scenes has pre-estimated normals and no color/texture. The dataset contains full 6D ground truth poses for each object as the only evaluation data type.
+
+The Queens Lidar dataset \cite{Taati2011}, \cite{Taati2007} is constructed like the UWA dataset with a laser scanner and consists of five object models and 80 real scenes take from one viewpoint. Like the UWA dataset, the Queens Lidar dataset contains no color information but the scenes has larger variation compared to the UWA dataset with one to five object models present in the scenes. The five object models has pre-estimated normals but is only provided as a point representation. The dataset contains full 6D ground truth poses for each object as the only evaluation data.
+
+The Queens Stereo dataset \cite{Taati2011}, \cite{Taati2007} contains five full object models and 100 real scenes created with a stereo camera and standard stereo reconstruction. The dataset is taken from one viewpoint. Each scene contains three object models with no color, normal, occlusion or clutter information available. Like the Queens Lidar dataset the object models is represented with points and no vertices. The dataset contains full 6D ground truth poses for each object as the only evaluation data.
+
+The Bologna 1 \& 2 dataset \cite{Salti2014}, \cite{Tombari2010} contains six full object models and 45 synthetic scenes. All scenes is construct a synthetic scenes with models from the Stanford 3D Scanning Repository. Each 45 scenes are created by applying a random transformation to a random subset of object model and store the scene. The difference between the Bologna 1 and Bologna 2 dataset are that Bologna 2 is re-sampled 1/8 of the original point density. The fact that it is a synthetic dataset results in 100 percent accurate 6D ground truth data.
+
+The Bologna 3 dataset \cite{Salti2014}, \cite{Tombari2010} contains eight models and 15 scenes. Each scenes are acquired with spacetime stereo technique and contains both color and surface normal information. Each scene contains two object models and additional objects to create clutter and occlusion. The eight models are single view object templates with color and estimated normals in mesh representation. The dataset contains full 6D pose estimates as ground truth. Their exist no data on occlusion and clutter estimates.
+
+The Bologna 4 dataset \cite{Salti2014}, \cite{Tombari2010} contains eight models and 16 scenes. As Bologna 3, this dataset is acquired with spacetime stereo techniques and containing color and normal data for both the object models and the scenes. The dataset includes object models with highly similar shapes but different textures. Each scene contains two object models and additional objects to create clutter and occlusion. The eight models are single view object templates with color and estimated normals in mesh representation. The dataset contains full 6D pose estimates as ground truth. Their exist no data on occlusion and clutter estimates.
+
+The Bologna 5 dataset \cite{Salti2014}, \cite{Tombari2010} contains six object models and 16 scenes. The dataset is acquired with a Microsoft Kinect sensor and includes color and normal information for both the object models and scenes. The provided object models is a set of object templates taken from different views. With a proper mesh registration algorithm a full object model can be created. The dataset contains full 6D pose estimates as ground truth. Their exist no data on occlusion and clutter estimates.
+
+The Vienna Kinect dataset \cite{Aldoma2012} contains 35 full object models and 50 scenes. Each scene is acquired with a Microsoft Kinect sensor and includes color information but no pre-estimated normals. All scenes is table top scenes with limited occlusion and clutter. The object models in each scene is distThe 35 object models are full represented mesh models without color but includes pre-estimated normals. 
+The dataset contains full 6D pose estimates as ground truth. Their exist no data on occlusion and clutter estimates.
+
+TUM dataset \cite{Rodola2013}\\
+
+RGB-D Dataset V1 \cite{Lai2011}, \cite{Lai2012}\\ 
+
+RGB-D Dataset V2 \cite{Lai2014}\\ 
+%------------------------------------------------------------------------
+\section{Experimental design}
+
+%-------------------------------------------------------------------------
+\section{Benchmark}
+
+%-------------------------------------------------------------------------
+\section{Evaluation}
+
+%-------------------------------------------------------------------------
+\section{Discussion}
+
+%-------------------------------------------------------------------------
+\section{Conclusion}
+
+%-------------------------------------------------------------------------
+
+
+
+{\small
+\bibliographystyle{3dv-2015authorkit/latex/ieee}
+\bibliography{bib}
+}
+
+
+\end{document}
