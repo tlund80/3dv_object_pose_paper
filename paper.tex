@@ -1,6 +1,6 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
-\usepackage{3dv-2015authorkit/latex/3dv}
+\usepackage{3dv2016authorkit/latex/3dv}
 \usepackage{times}
 \usepackage{epsfig}
 \usepackage{graphicx}
@@ -8,11 +8,13 @@
 \usepackage{amssymb}
 
 % Include other packages here, before hyperref.
+%\usepackage{multicol}
+\usepackage{url}
 
 % If you comment hyperref and then uncomment it, you should delete
 % egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
 % run, let it finish, and you should be clear).
-\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+%\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
 
 %\threedvfinalcopy % *** Uncomment this line for the final submission
 
@@ -21,57 +23,150 @@
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
 \ifthreedvfinal\pagestyle{empty}\fi
+\setcounter{page}{4321}
 \begin{document}
 
 %%%%%%%%% TITLE
 \title{A Large-Scale 3D Object Recognition dataset}
 
-%\author{Thomas S{\o}lund\\
-%Institution1\\
-%Institution1 address\\
-%{\tt\small thso@dti.dk}
-% For a paper whose authors are all at the same institution,
+\author{Thomas S{\o}lund\\
+Danish Technological Institute\\
+DK-5230 Odense M, Denmark\\
+{\tt\small thso@dti.dk}
+%For a paper whose authors are all at the same institution,
 % omit the following lines up until the closing ``}''.
 % Additional authors and addresses can be added with ``\and'',
 % just like the second author.
 % To save space, use either the email address or home page, not both
-%\and
-%Anders Glent Buch, Norbert Kr\"u{}ger\\
-%M\ae{}rsk Mc-Kinney M\o{}ller Institute,\\
-%University of Southern Denmark,\\
-%DK-5230 Odense, Denmark \\
-%{\tt\small anbu,norbert@mmmi.sdu.dk}
-%\and
-%Knut Conradsen, Henrik Aanæs\\
-%Department of Applied Mathematics\\ and Computer Science,\\ 
-%Technical University of Denmark\\
-%DK-2800 Kgs. Lyngby, Denmark\\
-%{\tt\small knco,aanes@dtu.dk}
-%}
+\and
+Anders Glent Buch, Norbert Kr\"u{}ger\\
+M\ae{}rsk Mc-Kinney M\o{}ller Institute,\\
+University of Southern Denmark,\\
+DK-5230 Odense, Denmark \\
+{\tt\small anbu,norbert@mmmi.sdu.dk}
+\and
+Henrik Aan\ae s\\ %Knut Conradsen, 
+Department of Applied Mathematics\\ and Computer Science,\\ 
+Technical University of Denmark\\
+DK-2800 Kgs. Lyngby, Denmark\\
+{\tt\small aanes@dtu.dk} %knco,
+}
 
 \maketitle
 %\thispagestyle{empty}
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
- To be written...........
+  This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text.This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. To be written...........
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
-\section{Introduction}
-The ability to recognise objects in range images is a fundamental research area in computer vision with many different application areas. With continually introduction of new affordable 3D sensors for different applications, the ability to localize and recognize rigid and no rigid objects are a attractive and unavoidable technology in the future. Applications areas such as robotic assembly, bin-picking, mobile manipulation, biometric analysis, tracking and intelligent surveillance all benefits from 3D data for recognizing and localizing objects. Mainly, because the third dimension are explicit given and not inferred as known from 2D object recognition and pose estimation. In the last decades a huge effort in 2D object recognition and classification has been going on, where methods have been evaluated on large-scale dataset like the PASCAL Visual Object Challenge (VOC) \cite{Everingham2014}, ImageNet \cite{Imagenet2009}. The ability to evaluate on a large-scale dataset has proven valuable in the future algorithm development after the release of the PASCAL VOC and ImageNet datasets \cite{Everingham2014}. In 3D object recognition and pose estimation there still lacks a large-scale dataset in order to evaluate algorithms. Until today 3D object recognition and pose estimations has been evaluated at a couple of smaller datasets namely the UWA \cite{Mian2006}, Queens \cite{Taati2007}, Bologna \cite{Salti2014},\cite{Tombari2010}, Vienna Kinect\cite{Aldoma2012}, TUM \cite{Rodola2013}, TUM-LineMod\cite{Hinterstoisser2012}, BigBird\cite{BigBIRD} and RGB-D dataset version 1 \& 2\cite{Lai2011}, \cite{Lai2014}.
-In this work we present a evaluation of local shape features and present a new large-scale dataset consisting of 50 objects and 300 scenes. The new dataset is recorded systematically using a setup with a industrial robot, a structured light sensor and a Kinect V2 sensor, which records data from 11 different view points. Each scene consists of 10 objects  automatic take with two different sensors, which results in a dataset with around 66000 unique object poses. 
 
+%%%%%%%%%%Page limits = 8 exclusive references
+%Intro and related work -> 2.5 page
+%Experiantal design -> 1 page
+%Benchmark -> 1 page
+%Evaluation/results -> 3 pages
+% conclusion/discussion -> 1/2 page
+\section{Introduction} %Hvad, hvorfor, hvordan
+The ability to recognise objects in range images is a fundamental research area in computer vision with many different application areas. With continually introduction of new affordable 3D sensors for different applications, the ability to localize and recognize rigid and no rigid objects are a attractive and unavoidable technology in the future. Applications areas such as robotic assembly, bin-picking, mobile manipulation, biometric analysis, tracking and intelligent surveillance all benefits from 3D data for recognizing and localizing objects. Mainly, because the third dimension are explicit given and not inferred as known from 2D object pose estimation. In the last decades a huge effort in 2D object recognition and classification has been going on, where methods have been evaluated on large-scale dataset like the PASCAL Visual Object Challenge (VOC) \cite{Everingham2014} and ImageNet \cite{Imagenet2009}. The ability to evaluate algorithms with a large-scale dataset has proven valuable in the future algorithm development after the release of the PASCAL VOC and ImageNet datasets \cite{Everingham2014}.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth, height= 0.8\linewidth, keepaspectratio]{img/scenes/scene_000.pdf}
+\caption{Example of a scene}
+\label{fig:scene}
+\end{figure}
+In 3D object recognition and pose estimation there still is a need for a large-scale dataset that consistes of 3D querie models $Q_n$, 3D target scenes $S_t$ and ground truth poses $T_{gt}$ for each object in each scene, in order to be able to evaluate 3D object recognition algorithms better. Until today 3D object recognition has been evaluated at up to eight smaller datasets \cite{Guo2015}, include in the UWA \cite{Mian2006},\cite{Mian2010}, Queens \cite{Taati2007},\cite{Taati2007} and Bologna \cite{Salti2014},\cite{Tombari2010} dataset. Other, smaller dataset like the Vienna Kinect\cite{Aldoma2012}, TUM \cite{Rodola2013}, TUM-LineMod\cite{Hinterstoisser2012}, BigBird\cite{BigBIRD} and RGB-D dataset version 1 \& 2\cite{Lai2011}, \cite{Lai2014} have been proposed. Common for all dataset are that the amount of scenes and/or models are limited.\\
+%\begin{multicols}{3}
+\begin{table*}[ht]
+\label{tab:datasets}
+\centering % Center table
+         \begin{tabular}{p{4.2cm} p{0.3cm} p{1.2cm} p{1.5cm} p{1.55cm} p{0.3cm} p{0.3cm} p{0.3cm} p{0.3cm} p{0.3cm} p{0.3cm} p{0.3cm} p{0.3cm} p{0.3cm} p{0.3cm}}
+                  %%  & \multicolumn{2}{c}{Data Size} & \multicolumn{4}{c}{Models} & \multicolumn{2}{c}{Scene} & \multicolumn{5}{c}{Ground truth} & he \\
+                  %%  \hline
+             & {$M_q$} & {$S_t$} &  Sensor & {$M_q$} in {$S_t$} & \rotatebox{90}{$M_q$ normals} & \rotatebox{90}{$M_q$ color } & \rotatebox{90}{$M_q$ mesh } & \rotatebox{90}{$S_t$ normals } & \rotatebox{90}{$S_t$ color } & \rotatebox{90}{$S_t$ mesh} & \rotatebox{90}{Full 6D pose} & \rotatebox{90}{Occlusion} & \rotatebox{90}{Clutter} & \rotatebox{90}{[R]/[S]}\\
+            \hline
+            \hline
+             UWA \cite{Mian2006}, \cite{Mian2010}  & 5 & 50 & LIDAR & (5)/(5) & \checkmark & \% & \checkmark & \checkmark & \%  & \checkmark & \checkmark  & \checkmark & \% & R\\
+             \hline
+             Queens Lidar  \cite{Taati2011}, \cite{Taati2007}  & 5 & 80 & LIDAR & (1-5)/(1-5) & \checkmark & \% & \checkmark & \% & \%  & 0 & \checkmark & \% & \% & R\\
+             \hline
+             Queens Stereo  \cite{Taati2011}, \cite{Taati2007}  & 5 & 100 & Stereo & (3)/(3)   & \checkmark & \% & \checkmark & \% & \%  & 0 & \checkmark & \% & \% & R\\
+             \hline
+             Bologna 1\&2 \cite{Salti2014}, \cite{Tombari2010} & 6 & 45 & LIDAR & (3-5)/(3-5) & \checkmark & \% & \checkmark & \checkmark & \% & \checkmark & \checkmark & \% & \% & S \\
+			 \hline              
+             Bologna 3 \cite{Salti2014}, \cite{Tombari2010} & 8 & 15 & Spacetime & (2)/(5-6) & \checkmark & \checkmark & \% & \checkmark & \checkmark & \checkmark & \checkmark & \% & \% & R\\
+             \hline
+             Bologna 4 \cite{Salti2014}, \cite{Tombari2010} & 8 & 16 & Spacetime & (2)/(6) & \checkmark & \checkmark & \% & \checkmark & \checkmark & \checkmark & \checkmark & \% & \% & R\\
+             \hline
+             Bologna 5 \cite{Salti2014}, \cite{Tombari2010} & 6 & 16 & Kinect V1 & (2-4)/(5-9) & \checkmark & \checkmark & \% & \checkmark & \checkmark & \checkmark & \checkmark & \% & \% & R \\
+             \hline
+             Vienna Kinect \cite{Aldoma2012} & 35 & 50 & Kinect V1 & 0 & \checkmark & \% & \checkmark & \% & \checkmark & 0 & \checkmark & \% & \% & R\\
+             \hline
+             RGB-D Scenes V1 \cite{Lai2011}, \cite{Lai2012} & 5 & 8 videos & Kinect V1 & (0)/ & \% & \% & \%  & \% & \checkmark  & \% & \% & \% & \% & R\\
+			 \hline             
+             RGB-D Scenes V2 \cite{Lai2014} & 9 & 14 & Kinect V1 & (0)/ & \% & \% & \% & \% & \checkmark & \% & \% & \% & \% & R\\
+             \hline
+             T{\"U}M \cite{Rodola2013} & 20 & 150 & kinect & (3-5)/(3-5) & \checkmark  & \%  & \checkmark  & \checkmark & \% & \checkmark & \checkmark & \checkmark & \checkmark & S\\
+             \hline
+             Willow \cite{Willow} & 35 & 177 & kinect & 0 & \checkmark  & \checkmark  & \checkmark  & \% & \checkmark & 0 & \% & \% & \% & R\\
+             \hline
+            % B3DO \cite{Janoch2011}  & 0 & 849 & kinect & 0 & \%  & \%  & \%  & \% & \checkmark & \% & \% & \% & R\\
+            % \hline
+             ECCV12 \cite{Aldoma2012}  & 35 & 50 & Kinect V1 & (3-7)/(3-7) & \%  & \checkmark  & \checkmark  & \% & \% & \% & \checkmark & \% & \% & R\\
+             \hline
+              Alicante \cite{Garcia-Garcia2016}  & 30 & 50 & Kinect V2 & (0)/(0) & \%  & \checkmark  & \checkmark  & \% & \% & 0 & \checkmark & \% & \% & R\\
+             \hline
+             \hline
+             \textbf{Our SL dataset}  & \textbf{50} & \textbf{3300} & SL & (10)/(10) & \checkmark  & \checkmark  & \checkmark  & \checkmark & \checkmark & \checkmark & \checkmark  & \checkmark & \checkmark & R\\
+             \hline
+             \textbf{Our Kinect dataset}  & \textbf{50} & \textbf{3300} & Kinect V2 & (10)/(10) & \checkmark  & \checkmark  & \checkmark  & \checkmark & \checkmark & \checkmark & \checkmark  & \checkmark & \checkmark & R\\       
+             \hline 
+        \end{tabular}
+%        \captionof{table}{Existing datasets for 3D object recognition and pose estimation}% Add 'table' caption
+        \label{dataset_overview}
+ 
+\caption{Comparison of existing datasets for 3D object recognition with the presented datasets. {$M_q$} is the amount of different models in the dataset and {$S_t$} is the amount of scenes.[R]/[S] indicates whether the dataset is synthetic or acquired in real world. }
+\end{table*}
+%\end{multicols}
+In this work we present a new large-scale dataset consisting of 50 objects and 3300 scenes. The new dataset is recorded systematically in an environment without ambient light and with controlled illumination. The system includes a industrial robot in a dark chamber, a high precision structured light scanner and a Kinect V2 sensor, which records data from 11 different view points. Each scene consists of 10 objects automatic taken with the two different sensors, which results in a dataset with around 66000 unique object poses. With 11 different views of the same scene our dataset is especially suited for studying the effect of view point changes in 3D object recognition. Our 50 object models are scanned in a similar dark chamber with a high precision structured scanner and a rotation table. With this setup we are able to scan objects with an accuracy down to XX microns. We use the dataset to evaluate state of the art local shape features in a 3D object recognition pipeline. In Table \ref{tab:datasets} a summery of the features of ours and state of the art dataset are presented.\\
+Why do the 3D Object recognition community needs another dataset? Current proposed dataset is limited in the number of objects/scenes and the objects included in the datasets are mostly geometrical ideal objects. With geometrical ideal objects we refers to mostly concave objects that are rich of geometrical features like the UWA-chef model \cite{Mian2006},\cite{Mian2010}, the bologna-Armadillo \cite{Salti2014},\cite{Tombari2010} and the Queens-BigBird \cite{Taati2007},\cite{Taati2007}. With our dataset we introduce not only ideal concave objects, but flat, cylindrical, feature-rich and feature-poor concave and convex objects. Our objects are a combination of lab-objects and industrial objects which are selected from companies that wants to pick these objects from boxes or bins with a robot.\\
+This paper is structured as follows: In Section \ref{sec:related_work} related datasets and local feature descriptors are presented. Section \ref{sec:exp_design} details our experimental design followed by Section \ref{sec:benchmark} which presents our benchmarking methodology. In Section \ref{sec:evaluation} the results are given followed by a discussion and conclusion in Section \ref{sec:conclusion}. 
+%-------------------------------------------------------------------------
+	\section{Related work} \label{sec:related_work}
+%We are not considering learning approaches
+\textbf{3D Object Recognition datasets:}\\
+
+\textbf{Local feature descriptors:}\\
+During the last three decade, a vast number of different 3D local feature descriptors have been proposed including SPLASH \cite{Stein1992}, Spin Image (SI) \cite{Johnson1999}, 3DSC \cite{Frome2004}, LSP \cite{ChenBhanu2004}, 3D Tensor \cite{Mian2006}, THRIFT \cite{Flint2007}, MESH-HOG \cite{Zaharescu2009}, ISS \cite{Zhong2009}, USC \cite{usc2010}, PFH \cite{Rusu2008}, FPFH \cite{Fpfh2009}, SHOT \cite{Tombari2010}, ROPS \cite{Guo2013}, ECSAD \cite{Ecsad2015}, Tri-Spin-Image (TriSI)\cite{Guo2015}. The descriptors find usages in applications such as 3D object categorization, recognition, retrial, analysis, registration and reconstruction among others. Designing descriptors which are distinctive and robust to occlusion and noise are still and ongoing research topic. Recent studies has shown that the proposed features are not generalizing well over many types of geometry classes, \cite{Guo2015},\cite{Buch2016}. The studies proved one of the main issue in 3D object recognition today, namely the fact that there exist no local shape feature that describes the geometry well in many different object classes, e.g. flat, rotational symmetrical and geometrical feature rich objects. What feature(s) to use are still dependant of the object geometry. These studies poses a relevant research question, are the local feature descriptors not descriptiveness enough to generalize over different object classes or are the evaluation data to limited? The evaluation dataset there are used for the evaluation in general and in \cite{Guo2015},\cite{Buch2016}, consists mainly of objects with many descriptive and distinctive geometrical features. In this work we try to answer this fundamental question by creating the data foundation to evaluate the performance of each local feature descriptors by applying statistic. 
+
+Local feature descriptor aims at computing a distinctive and robust N-dimensional feature vector around a point, by considering the k-neighbour points in euclidean space. The radius of the K-Nearest Neighbour search (KNN), the support radius is often one of the critical parameters in the pipeline. Local feature descriptors are often split into tow different categories, spatial and geometrical histograms \cite{Guo2015}. Global feature descriptors, typical computes a descriptors by considering the spatial and/or geometrical relations between two or more local feature descriptors on a 3D geometry.   
+
+Local shape features can be split into two different categories, spatial and geometrical histograms \cite{Guo2015}. 
+Early work by Stein and Medioni \cite{Stein1992} used a combination of edges and small surfaces patches for 3D matching in range images. Later Johnson  and Albert introduced Spin Images \cite{Johnson1999} 
+
+Spin Images \cite{Johnson1999}\\
+Froome \etal \cite{Frome2004} presented a local descriptor 3D shape context.
+%USC \cite{usc2010}\\
+
+%PFH \cite{Rusu2008}
+%FPFH \cite{Fpfh2009}\\
+%ECSAD \cite{Ecsad2015}\\
+%ROPS \cite{Guo2013}\\
+%SHOT \cite{Salti2014}\\
+%NDHIST\\
+%PPF \cite{Drost2010}\\
+%SHOT \cite{Tombari2010}\\
+
+Recently, a couple of benchmarks of local feature descriptors has been presented. Guo \etal \cite{Guo2015} presented a comprehensive comparison of most common local feature descriptors. The 
+Feature Fusion \cite{Buch2016}\\
+Feature comparision Yulan et.al. \cite{Guo2015}
 
 %and pose estimation \cite{Viksten09}, \cite{Hinterstoisser2012}, this kind of scientific validations of results still lacks in 3D object recognition. 
 %2D object recognition is well studied lacking with 3D. Keypoint comparison Aan{\ae}s et.al. \cite{Aanaes2011}
 
 %We study the performance of the top six local shape features and one global descriptor 
 %Limitations in current dataset and algorithms. Feature rich objects not flat or cylindrical objects
-
-
-
-	
 
 %The UWA dataset by Mian et.al. \cite{Mian2006}, \cite{Mian2010} is one of the best known datasets for 3D pose estimation algorithm evaluation. The dataset is composed of four full object models and 50 real scenes captures with a laser scanner which containing incomplete instances of the objects. Each scene contains three or four object models which results in much clutter and occlusion. The amount of occlusion and clutter in each scene is not provided. The four object models are generated with a multi-view registration algorithm. Each object model contain more than 100000 mesh vertices and posses good and distinctive shape features with non-uniform surfaces and ambiguities. The object models and scenes has pre-estimated normals and no color/texture. The dataset contains full 6D ground truth poses for each object as the only evaluation data type.
 
@@ -88,48 +183,130 @@ In this work we present a evaluation of local shape features and present a new l
 %TUM dataset \cite{Rodola2013}\\
 %RGB-D Dataset V1 \cite{Lai2011}, \cite{Lai2012}\\ 
 %RGB-D Dataset V2 \cite{Lai2014}\\ 
-
-%-------------------------------------------------------------------------
-\section{Related work}
-%We are not considering learning approaches
-\textbf{Local Shape features:}\\
-
-
-Spin Images \cite{Johnson1999}\\
-Froome \etal \cite{Frome2004} presented a local descriptor 3D shape context.
-USC \cite{usc2010}\\
-
-
-FPFH \cite{Fpfh2009}\\
-ESAC \cite{Ecsad2015}\\
-ROPS \cite{Guo2013}\\
-SHOT \cite{Salti2014}\\
-NDHIST\\
-PPF \cite{Drost2010}\\
-SHOT \cite{Tombari2010}\\
-
-Feature Fusion \cite{Buch2016}\\
-Feature comparision Yulan et.al. \cite{Guo2015}
-
 %------------------------------------------------------------------------
-%\section{Experimental design}
+\section{Experimental design} \label{sec:exp_design}
+%Describe the object scanning process
+\subsection{Object model scanning}
+Our object models are scanned with a high precision structured light setup consisting of two industrial cameras (Point Grey Research GS3-U3-91S6C-C) and
+a high resolution DLP projector (LG PF80G) mounted on a rigid aluminium frame. In addition, a high precision turntable (Newmark Systems RT-5) is used in order to provide automatic rotation of the object. Each of the 50 objects are incremental scanned with a rotation of 20 degrees. All individual scan views are reconstructed by the Line shifting algorithm \cite{Guehring2000} which results in accurate and dense point cloud of the objects. Eleven temporal binary gray code patterns are projected followed by eight line shifting patterns. The point resolution of the scanner is XX. Once a single view of the model are scanned, noisy outliers of the measurement are manual removed and surface normals are estimated to ensure consistent normals. All 18 views are registered with Iterative Closest Point (ICP) and the object frame are computed by principal component analysis.
+All models are sampled with a Poisson disk sampling algorithm and triangulated with the poisson reconstruction algorithm \cite{Kazhdan2006} with an octree depth=14, Solver divide = x and xx = xx. We use the PCL implementation \cite{RusuCousins2011}. All models are provided as coloured point clouds and triangular meshes, all in the $.ply$ format, see Figure \ref{fig:objects}. Note that the modelling setup is not radiometrical calibrated.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/objects/objects.pdf}
+\caption{Four of the fifty scanned and triangulated object models}
+\label{fig:objects}
+\end{figure}
+%Describe setup for scene aqusition
+\subsection{Scene scanning} 
+For the data collection we use the robot depicted at Figure \ref{fig:robot}. The robot is equipped with two PointGray Grasshopper3 GS3-U391S6C-C USB3 color cameras with resolution of 9.1 Mp, a Wintech Pro4500 projector with a resolution of 1140x912 pixels and a Kinect One sensor. The sensor cluster is mounted in the robot tool. The sensor modalities are selected by two reasons. First, the structured light system (SL) ensure a high precision that is XX times better than the Kinect thus we are able to provide accurate ground truth pose data for each object in the scene down to a precision of xx mm. Second, Time-of-Flight sensors like the Kinect One sensor are popular sensors in many research areas such as robotic manipulation, 3D semantic mapping, people detection and consumer products thus we wanted to support the future development of 3D object recognition systems and algorithms by including the sensor in the dataset. 
+The Robot setup is constructed as a radiometric "dead" which gives a scene representation with zero ambient light. All the scene illumination is controlled in the recording process. The sensor cluster is calibrated with a automatic calibration procedure which includes a stereo calibration of the SL sensor using \verb|OpenCV|\footnote{\url{http://opencv.org/}} and a intrinsic calibration of the Kinect using the \verb|iai_kinect2|\footnote{\url{https://github.com/code-iai/iai_kinect2}} software package. The Kinect calibration ensure a proper registration of the RGB values at each 3D point. An automatic hand eye calibration \cite{DornaikaHoraud1998} is conducted in order to align the Kinect and the SL scans in the world frame. The world frame is the robot base frame.
+%Describe recording procedure
+Each scene are scanned from 11 different views with both the structured line scanner (SL) and the Kinect such that each physical scene results in 11 SL and 11 Kinect scenes, 22 scenes in total. During the SL scanning process the chamber is completlty dark in order to increase the signal-to-noise ration of the scan. When the Kinect scene are depicted a two diffuse light projectors are automatical turned on to depict the kinect colors. The level of diffuse scene ligth are empirical dertermined such that the kinect RGB camera not oversaturating.  The structured light scans are reconstructed with the Line shifting algorithm \cite{Guehring2000} with ten temporal pattern levels. The views are distributed equally on a quarter sphere around the scene, such that each scene is depicted from - 90 to 90 degrees horizontally and 0 to 45 degree vertically. In order to reproduce the results we store raw Portable Network Graphics images in full resolution (9.1 MP). De-bayering, white balance, image rectification, pattern decoding and point cloud reconstruction are a off line process.   
+
+%Meshing of the scenes + normal estimation
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=1.0\linewidth, height= 0.7\linewidth]{img/dummy.pdf}
+%\caption{Scan of the full scene with view frames}
+%\label{fig:scene}
+%\end{figure}
+%A Note on ground truth
+\subsection{Ground Truth 6D pose}
+For each of the ~3300 scenes the 6D ground truth pose, occlusion and clutter estimates for each object are provided. We estimate the occlusion from Equation \ref{eq:occlusion} and clutter from Equation \ref{eq:clutter} by counting the number of points at the object model which squared euclidean distance to a scene point is less than two times the resolution. Both the object model and the scene are sampled to ensure equal point distance.
+\begin{equation}
+Occlusion = 1 - \frac{visible object points}{total object points} 
+\label{eq:occlusion}
+\end{equation}
+\begin{equation}
+Clutter = 1 - \frac{visible object points}{total scene points}
+\label{eq:clutter}
+\end{equation}
+Accurate ground true poses are ensure by registration of the individual SL scans into one full scene model in world frame which covers the geometric structures of all the models in the particular scene, see Figure \ref{fig:scene}. The hand/eye calibration procedure computes the transformation from each sensor frame to the robot flange such that every transformation is known in the system. With all transformation known, it is trivial to align the kinect scans with full SL scene by applying the transformation $T_{kinect2SL}$ followed by fine ICP registration $T_{ICP}$ on the full resolution SL scene. 
+All ~300 combined scenes are manual annotated by selecting four identical points for each model and the scene followed by an estimation of the rigid transform. An iterative ICP, which incremental decrease the max allowed correspondence euclidean distance on the full resolution cloud ensures the ground truth pose. The individual ground truth poses in each sensor view $T{s_n}$ are generate by transforming ground truth pose from the world frame $T_{w}$ to each of the individual sensor frames $T{s_n}$ by applying the equation $T^{w}_{s_n} = $. This methodology guarantees accurate pose in $T{s_n}$ independent of the amount of occlusion. Even in views with limited number of scene point of an object the ground truth pose is accurate. Moreover, we align each Kinect scans in $T{s_n}$ to the SL scan by applying the transform $T=$ which gives an accurate ground truth pose for the noisy Kinect data based on dense and accurate SL data. 
+
+%We provide 6D ground truth poses with RMS error for the final ICP registration. In this way we can guarantee that the overall accuracy of all ground truth poses is within xx mm. 
+%Combine the 11 views. The different scans are then aligned with respect to scan number zero by applying
+%These view points ensure a good coverage of the scene and provide the needed geometric structure of each object to reliable compute ground truth. 
+%alignment two frame 0. alignment of kinect scene and transformation back to the sensor frame.
 
 %-------------------------------------------------------------------------
-%\section{Benchmark}
+\section{Benchmark}\label{sec:benchmark}
+This section describes the experimental protocol defined for the evaluation of the dataset. The evaluation is divide into two parts; feature descriptivness and recognition rate. The selected local feature descriptors for our evaluation includes; Spin Image (SI) \cite{Johnson1999}, 3DSC \cite{Frome2004}, PFH \cite{Rusu2008}, FPFH \cite{Fpfh2009}, USC \cite{usc2010}, SHOT \cite{Tombari2010}, ROPS \cite{Guo2013}, ECSAD \cite{Ecsad2015} and NDHIST \cite{Buch2016}. The features are selected based on implementation availability and results from previous studies on feature descriptor benchmarking \cite{Guo2015}, \cite{Buch2016}. Precision-Recall Curves (PRC) are used to evaluate the descriptiveness and accuracy of a feature descriptor. The
+
+"For each target model, the seed points of each query model are placed in the scene using the ground truth pose, and the target seed points are now described. We use voxel gird for sampling \cite{RusuCousins2011} to get uniform point distance. Following the seed point sampling, each seed point are described by the nine feature descriptors. 
+
+"In general the matching accuracy of a descriptor is expected to increase with increasing support radius, except in cases where occlusion and clutter are present." For fair comparison individually tuned support radii for each descriptors are used; SI($xx$), 3DSC($xx$), PFH($xx$), FPFH($xx$), USC($xx$), SHOT($xx$), ROPS($xx$), ECSAD($xx$), NDHIST($xx$).
+
+For each query and target we add three levels of gaussian noise to the vertex position
+%-------------------------------------------------------------------------
+\section{Evaluation}\label{sec:evaluation}
+
+\begin{figure*}[htp]
+\centering
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 0.7\linewidth, keepaspectratio]{img/PRC_1.pdf} 
+\caption{Noise level 1 for STL dataset}\label{fig:stl_n1}
+\end{minipage}\qquad
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf}
+\caption{Noise level 2 for STL dataset}\label{fig:stl_n2}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf}
+\caption{Noise level 3 for STL dataset}\label{fig:stl_n3}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf} 
+\caption{Decimination level 1 for STL dataset}\label{fig:stl_d1}
+\end{minipage}\qquad
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf}
+\caption{Decimination level 2 for STL dataset}\label{fig:stl_d2}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf}
+\caption{Decimination level 3 for STL dataset}\label{fig:stl_d3}
+\end{minipage}
+\end{figure*}
+
+
+\begin{figure*}[htp]
+\centering
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf} 
+\caption{Noise level 1 for Kinect dataset}\label{fig:kinect_n1}
+\end{minipage}\qquad
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf}
+\caption{Noise level 2 for Kinect dataset}\label{fig:kinect_n2}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf}
+\caption{Noise level 3 for Kinect dataset}\label{fig:kinect_n3}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf} 
+\caption{Decimination level 1 for Kinect dataset}\label{fig:kinect_d1}
+\end{minipage}\qquad
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf}
+\caption{Decimination level 2 for Kinect dataset}\label{fig:kinect_d2}
+\end{minipage}
+\begin{minipage}[b]{.3\textwidth}
+\includegraphics[width=1.0\linewidth, height= 1.0\linewidth, keepaspectratio]{img/PRC_1.pdf}
+\caption{Decimination level 3 for Kinect dataset}\label{fig:kinect_d3}
+\end{minipage}
+\end{figure*}
 
 %-------------------------------------------------------------------------
-%\section{Evaluation}
+\section{Discussion \& Conclusion}\label{sec:conclusion}
 
 %-------------------------------------------------------------------------
-%\section{Discussion}
 
-%-------------------------------------------------------------------------
-%\section{Conclusion}
-
-%-------------------------------------------------------------------------
 
 {\small
-\bibliographystyle{3dv-2015authorkit/latex/ieee}
+\bibliographystyle{3dv2016authorkit/latex/ieee}
 \bibliography{bib}
 }
+
 \end{document}
