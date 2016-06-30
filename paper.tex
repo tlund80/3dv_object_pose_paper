@@ -18,7 +18,7 @@
 
 %\threedvfinalcopy % *** Uncomment this line for the final submission
 
-\def\threedvPaperID{****} % *** Enter the 3DV Paper ID here
+\def\threedvPaperID{4} % *** Enter the 3DV Paper ID here
 \def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
@@ -93,7 +93,7 @@ In 3D object recognition and pose estimation there still is a need for a large-s
              \hline
              Queens Stereo  \cite{Taati2011}, \cite{Taati2007}  & 5 & 100 & Stereo & (3)/(3)   & \checkmark & \% & \checkmark & \% & \%  & 0 & \checkmark & \% & \% & R\\
              \hline
-             Bologna 1\&2 \cite{Salti2014}, \cite{Tombari2010} & 6 & 45 & LIDAR & (3-5)/(3-5) & \checkmark & \% & \checkmark & \checkmark & \% & \checkmark & \checkmark & \% & \% & S \\
+             Bologna 1\&2 \cite{Salti2014}, \cite{Tombari2010} & 6 & 45 & - & (3-5)/(3-5) & \checkmark & \% & \checkmark & \checkmark & \% & \checkmark & \checkmark & \% & \% & S \\
 			 \hline              
              Bologna 3 \cite{Salti2014}, \cite{Tombari2010} & 8 & 15 & Spacetime & (2)/(5-6) & \checkmark & \checkmark & \% & \checkmark & \checkmark & \checkmark & \checkmark & \% & \% & R\\
              \hline
@@ -107,9 +107,9 @@ In 3D object recognition and pose estimation there still is a need for a large-s
 			 \hline             
              RGB-D Scenes V2 \cite{Lai2014} & 9 & 14 & Kinect V1 & (0)/ & \% & \% & \% & \% & \checkmark & \% & \% & \% & \% & R\\
              \hline
-             T{\"U}M \cite{Rodola2013} & 20 & 150 & kinect & (3-5)/(3-5) & \checkmark  & \%  & \checkmark  & \checkmark & \% & \checkmark & \checkmark & \checkmark & \checkmark & S\\
+             T{\"U}M \cite{Rodola2013} & 20 & 150 & - & (3-5)/(3-5) & \checkmark  & \%  & \checkmark  & \checkmark & \% & \checkmark & \checkmark & \checkmark & \checkmark & S\\
              \hline
-             Willow \cite{Willow} & 35 & 177 & kinect & 0 & \checkmark  & \checkmark  & \checkmark  & \% & \checkmark & 0 & \% & \% & \% & R\\
+             Willow \cite{Willow} & 35 & 177 & Kinect V1 & 0 & \checkmark  & \checkmark  & \checkmark  & \% & \checkmark & 0 & \% & \% & \% & R\\
              \hline
             % B3DO \cite{Janoch2011}  & 0 & 849 & kinect & 0 & \%  & \%  & \%  & \% & \checkmark & \% & \% & \% & R\\
             % \hline
@@ -133,12 +133,14 @@ In this work we present a new large-scale dataset consisting of 50 objects and 3
 Why do the 3D Object recognition community needs another dataset? Current proposed dataset is limited in the number of objects/scenes and the objects included in the datasets are mostly geometrical ideal objects. With geometrical ideal objects we refers to mostly concave objects that are rich of geometrical features like the UWA-chef model \cite{Mian2006},\cite{Mian2010}, the bologna-Armadillo \cite{Salti2014},\cite{Tombari2010} and the Queens-BigBird \cite{Taati2007},\cite{Taati2007}. With our dataset we introduce not only ideal concave objects, but flat, cylindrical, feature-rich and feature-poor concave and convex objects. Our objects are a combination of lab-objects and industrial objects which are selected from companies that wants to pick these objects from boxes or bins with a robot.\\
 This paper is structured as follows: In Section \ref{sec:related_work} related datasets and local feature descriptors are presented. Section \ref{sec:exp_design} details our experimental design followed by Section \ref{sec:benchmark} which presents our benchmarking methodology. In Section \ref{sec:evaluation} the results are given followed by a discussion and conclusion in Section \ref{sec:conclusion}. 
 %-------------------------------------------------------------------------
-	\section{Related work} \label{sec:related_work}
+\section{Related work} \label{sec:related_work}
 %We are not considering learning approaches
 \textbf{3D Object Recognition datasets:}\\
+The last 10 years a few 3D object recognition datasets have been published. Mainly in conjunction with algorithms for local feature description \cite{Mian2006},\cite{Taati2007},\cite{Taati2011},\cite{Tombari2010},\cite{Salti2014}, correspondence matching and rejection \cite{Rodola2013}, pose hypothesis verification \cite{Aldoma2012} and 3D keypoint detection \cite{Mian2010}. Common for all existing dataset are the limited number of 3D object models and scenes. A comparison of the different datasets are presented in Table \ref{tab:datasets}. The most common used datasets are the UWA  \cite{Mian2006}, \cite{Mian2010}, Queens \cite{Taati2007},\cite{Taati2011} and the Bologna \cite{Salti2014}, \cite{Tombari2010}. These datasets are widely used in performance evaluations of  local feature descriptors \cite{Guo2015}, \cite{Buch2016}, keypoint detectors \cite{Salti2011} and surveys \cite{Guo2014}, \cite{FilipeAlexandre2014}. The main problem of all the datasets are; size, variety of objects and occlusion/clutter estimates. The recent comparison studies \cite{Guo2015}, \cite{Buch2016} revival that the data for evaluation are not good enough to scientific distinguish results. The studies exactly showed that one local feature descriptor preformed very good for one dataset but fail in other datasets. The reason could be twofold; the local feature descriptors are not generalizing well and/or the evaluation data is too limited. This work tries to answer this question.\\ 
 
 \textbf{Local feature descriptors:}\\
-During the last three decade, a vast number of different 3D local feature descriptors have been proposed including SPLASH \cite{Stein1992}, Spin Image (SI) \cite{Johnson1999}, 3DSC \cite{Frome2004}, LSP \cite{ChenBhanu2004}, 3D Tensor \cite{Mian2006}, THRIFT \cite{Flint2007}, MESH-HOG \cite{Zaharescu2009}, ISS \cite{Zhong2009}, USC \cite{usc2010}, PFH \cite{Rusu2008}, FPFH \cite{Fpfh2009}, SHOT \cite{Tombari2010}, ROPS \cite{Guo2013}, ECSAD \cite{Ecsad2015}, Tri-Spin-Image (TriSI)\cite{Guo2015}. The descriptors find usages in applications such as 3D object categorization, recognition, retrial, analysis, registration and reconstruction among others. Designing descriptors which are distinctive and robust to occlusion and noise are still and ongoing research topic. Recent studies has shown that the proposed features are not generalizing well over many types of geometry classes, \cite{Guo2015},\cite{Buch2016}. The studies proved one of the main issue in 3D object recognition today, namely the fact that there exist no local shape feature that describes the geometry well in many different object classes, e.g. flat, rotational symmetrical and geometrical feature rich objects. What feature(s) to use are still dependant of the object geometry. These studies poses a relevant research question, are the local feature descriptors not descriptiveness enough to generalize over different object classes or are the evaluation data to limited? The evaluation dataset there are used for the evaluation in general and in \cite{Guo2015},\cite{Buch2016}, consists mainly of objects with many descriptive and distinctive geometrical features. In this work we try to answer this fundamental question by creating the data foundation to evaluate the performance of each local feature descriptors by applying statistic. 
+{\color{red} AGB will you write this. Length around 1 colum}
+During the last three decade, a vast number of different 3D local feature descriptors have been proposed including SPLASH \cite{Stein1992}, Spin Image (SI) \cite{Johnson1999}, 3D Shape Contex (3DSC) \cite{Frome2004}, LSP \cite{ChenBhanu2004}, 3D Tensor \cite{Mian2006}, THRIFT \cite{Flint2007}, MESH-HOG \cite{Zaharescu2009}, ISS \cite{Zhong2009}, Unique shape context (USC) \cite{usc2010}, Point Feature Histogram (PFH)\cite{Rusu2008}, Fast Point Feature Histogram (FPFH) \cite{Fpfh2009}, SHOT \cite{Tombari2010}, ROPS \cite{Guo2013}, ECSAD \cite{Ecsad2015}, Tri-Spin-Image (TriSI)\cite{Guo2015}. The descriptors find usages in applications such as 3D object categorization, recognition, retrial, analysis, registration and reconstruction among others. Designing descriptors which are distinctive and robust to occlusion and noise are still and ongoing research topic. Recent studies has shown that the proposed features are not generalizing well over many types of geometry classes, \cite{Guo2015},\cite{Buch2016}. The studies proved one of the main issue in 3D object recognition today, namely the fact that there exist no local shape feature that describes the geometry well in many different object classes, e.g. flat, rotational symmetrical and geometrical feature rich objects. What feature(s) to use are still dependant of the object geometry. These studies poses a relevant research question, are the local feature descriptors not descriptiveness enough to generalize over different object classes or are the evaluation data to limited? The evaluation dataset there are used for the evaluation in general and in \cite{Guo2015},\cite{Buch2016}, consists mainly of objects with many descriptive and distinctive geometrical features. In this work we try to answer this fundamental question by creating the data foundation to evaluate the performance of each local feature descriptors by applying statistic. 
 
 Local feature descriptor aims at computing a distinctive and robust N-dimensional feature vector around a point, by considering the k-neighbour points in euclidean space. The radius of the K-Nearest Neighbour search (KNN), the support radius is often one of the critical parameters in the pipeline. Local feature descriptors are often split into tow different categories, spatial and geometrical histograms \cite{Guo2015}. Global feature descriptors, typical computes a descriptors by considering the spatial and/or geometrical relations between two or more local feature descriptors on a 3D geometry.   
 
@@ -199,17 +201,18 @@ All models are sampled with a Poisson disk sampling algorithm and triangulated w
 %Describe setup for scene aqusition
 \subsection{Scene scanning} 
 For the data collection we use the robot depicted at Figure \ref{fig:robot}. The robot is equipped with two PointGray Grasshopper3 GS3-U391S6C-C USB3 color cameras with resolution of 9.1 Mp, a Wintech Pro4500 projector with a resolution of 1140x912 pixels and a Kinect One sensor. The sensor cluster is mounted in the robot tool. The sensor modalities are selected by two reasons. First, the structured light system (SL) ensure a high precision that is XX times better than the Kinect thus we are able to provide accurate ground truth pose data for each object in the scene down to a precision of xx mm. Second, Time-of-Flight sensors like the Kinect One sensor are popular sensors in many research areas such as robotic manipulation, 3D semantic mapping, people detection and consumer products thus we wanted to support the future development of 3D object recognition systems and algorithms by including the sensor in the dataset. 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.0\linewidth, height= 0.7\linewidth]{Robot.pdf}
+\caption{Scan of the full scene with view frames}
+\label{fig:robot}
+\end{figure}
 The Robot setup is constructed as a radiometric "dead" which gives a scene representation with zero ambient light. All the scene illumination is controlled in the recording process. The sensor cluster is calibrated with a automatic calibration procedure which includes a stereo calibration of the SL sensor using \verb|OpenCV|\footnote{\url{http://opencv.org/}} and a intrinsic calibration of the Kinect using the \verb|iai_kinect2|\footnote{\url{https://github.com/code-iai/iai_kinect2}} software package. The Kinect calibration ensure a proper registration of the RGB values at each 3D point. An automatic hand eye calibration \cite{DornaikaHoraud1998} is conducted in order to align the Kinect and the SL scans in the world frame. The world frame is the robot base frame.
 %Describe recording procedure
 Each scene are scanned from 11 different views with both the structured line scanner (SL) and the Kinect such that each physical scene results in 11 SL and 11 Kinect scenes, 22 scenes in total. During the SL scanning process the chamber is completlty dark in order to increase the signal-to-noise ration of the scan. When the Kinect scene are depicted a two diffuse light projectors are automatical turned on to depict the kinect colors. The level of diffuse scene ligth are empirical dertermined such that the kinect RGB camera not oversaturating.  The structured light scans are reconstructed with the Line shifting algorithm \cite{Guehring2000} with ten temporal pattern levels. The views are distributed equally on a quarter sphere around the scene, such that each scene is depicted from - 90 to 90 degrees horizontally and 0 to 45 degree vertically. In order to reproduce the results we store raw Portable Network Graphics images in full resolution (9.1 MP). De-bayering, white balance, image rectification, pattern decoding and point cloud reconstruction are a off line process.   
 
 %Meshing of the scenes + normal estimation
-%\begin{figure}[ht]
-%\centering
-%\includegraphics[width=1.0\linewidth, height= 0.7\linewidth]{img/dummy.pdf}
-%\caption{Scan of the full scene with view frames}
-%\label{fig:scene}
-%\end{figure}
+
 %A Note on ground truth
 \subsection{Ground Truth 6D pose}
 For each of the ~3300 scenes the 6D ground truth pose, occlusion and clutter estimates for each object are provided. We estimate the occlusion from Equation \ref{eq:occlusion} and clutter from Equation \ref{eq:clutter} by counting the number of points at the object model which squared euclidean distance to a scene point is less than two times the resolution. Both the object model and the scene are sampled to ensure equal point distance.
@@ -231,15 +234,41 @@ All ~300 combined scenes are manual annotated by selecting four identical points
 
 %-------------------------------------------------------------------------
 \section{Benchmark}\label{sec:benchmark}
-This section describes the experimental protocol defined for the evaluation of the dataset. The evaluation is divide into two parts; feature descriptivness and recognition rate. The selected local feature descriptors for our evaluation includes; Spin Image (SI) \cite{Johnson1999}, 3DSC \cite{Frome2004}, PFH \cite{Rusu2008}, FPFH \cite{Fpfh2009}, USC \cite{usc2010}, SHOT \cite{Tombari2010}, ROPS \cite{Guo2013}, ECSAD \cite{Ecsad2015} and NDHIST \cite{Buch2016}. The features are selected based on implementation availability and results from previous studies on feature descriptor benchmarking \cite{Guo2015}, \cite{Buch2016}. Precision-Recall Curves (PRC) are used to evaluate the descriptiveness and accuracy of a feature descriptor. The
+This section outlines the experimental protocol defined to evaluate of the dataset. The protocol are inspired by the one used by Salti \etal \cite{Salti2014}. The evaluation is divide into two parts; feature matching and recognition. The selected local feature descriptors for our evaluation includes; Spin Image (SI) \cite{Johnson1999}, 3DSC \cite{Frome2004}, PFH \cite{Rusu2008}, FPFH \cite{Fpfh2009}, USC \cite{usc2010}, SHOT \cite{Tombari2010}, ROPS \cite{Guo2013}, ECSAD \cite{Ecsad2015} and NDHIST \cite{Buch2016}. The features are selected based on implementation availability and results from previous studies on feature descriptor benchmarking \cite{Guo2015},\cite{Buch2016}. 
+\subsection{Feature Matching}
+The descriptiveness and accuracy of a feature descriptor are measured with Precision-Recall and presented as 1-Precision vs. Recall Cruves (PRC). First we sample both the query model and the target scene with a voxel grid sampling \cite{RusuCousins2011} which results in equal point distance. The Voxel size are tune to give approximately XXXX seed points per. object in both the query and target. The target seed points are found by transforming the query seed into the sampled scene using the ground truth pose and selecting scene points by a nearest neighbour search with a distance threshold. A feature descriptor for each seed points for the query and target mesh are computed.  For fair comparison individually tuned support radii for each descriptors are used; SI($xx$), 3DSC($xx$), PFH($xx$), FPFH($xx$), USC($xx$), SHOT($xx$), ROPS($xx$), ECSAD($xx$), NDHIST($xx$). Upon feature computation the underlying meshes are utilized in a 0.xx \% decimated version. The level of decimation are empirical determined to the level with best overall matching results for all features. During decimation the normal orientation are re-computed for each vertex by the area weighted mean of the mesh triangle \cite{Thurmer1998}. In order to resolve the exact number of correct feature matches, an brute-force linear kd tree search are used with the ${L_2}$ distance function. Once all matches for all queries are computed they are ranked and sorted according to the ${L_2}$ distance in one array. The correct matches are found by traversing the array of matches and count the number of matches that are spatial close, determined by a distance threshold. The PRC curves are presented in Section \ref{sec:evaluation} where precision refers to the number of correct matches compared to the total number of matches. Recall refers to to the number correct matches compared to the total amount of possible matches (i.e. feature seed points found in the target). In addition to PRC curves the maximum F1 score are given as a single quantitative measure of the overall accuracy. The max F1 score are computed as the maximun harmonic mean over all (P,R) and the formula is presented in Equation \ref{eq::maxf1}.
+%Ratio of the nearest matching feature distance to that of the second nearest \cite{Buch2016}  
+\begin{equation}\label{eq::maxf1}
+max F_1 = {max}_{(P,R)} \left(2 \cdot \frac{P\cdot R}{P+R}\right)
+\end{equation}
+\subsection{Pose estimation}
+In this section the experimental protocol for the pose estimation experiments are presented. The sampling and seed point selection are identical with the feature matching benchmark presented except that we cannot use the ground truth pose for selecting target seed points. Instead, the target resolution are doubled, to quadruples the number of feature descriptors which increase the chance for describing the same feature. For increase the efficiency in the matching we now apply approximate nearest neighbour search to determine correspondences hypotheses instead of exact matching. Again, the ratio of the nearest and second nearest neighbours feature distance are used. A multiple randomized kd-trees with a bound of 512 checks and 4 trees are used as a good trade-off between accuracy and efficiency. Correspondences are ranked by ${L_2}$ distance which inputs potential feature correspondences to a hypothesis and test RANSAC algorithm.%ref to Muja and Lowe?
+During random sampling, three correspondences are sampled which is sufficient to generate a hypothesis pose. The hypothesis pose is tested by transforming the query point and counting the number of query points lie close to the target feature up to a tolerance given by the inlier threshold. The algorithm filters out false positives by setting a lower minimum of the number of inliers required to accept a pose hypothesis to {\color{red}5\%}. The the pose with the highest number of inliers are returned as the object pose. Our RANSAC implementation deviate from classic RANSAC, which treats all data points uniformly, by sampling correspondences by their quality score. The quality scores are given by the negative normalized ${L_2}$ distance ratio. The efficiency of the algorithm is further increased by discard the 50\% of the correspondences with the lowest quality score before running the RANSAC algorithm. Upon RANSAC completion the final pose are refined by {\color{red}50} ICP iterations on the query/target seed points and.
 
-"For each target model, the seed points of each query model are placed in the scene using the ground truth pose, and the target seed points are now described. We use voxel gird for sampling \cite{RusuCousins2011} to get uniform point distance. Following the seed point sampling, each seed point are described by the nine feature descriptors. 
 
-"In general the matching accuracy of a descriptor is expected to increase with increasing support radius, except in cases where occlusion and clutter are present." For fair comparison individually tuned support radii for each descriptors are used; SI($xx$), 3DSC($xx$), PFH($xx$), FPFH($xx$), USC($xx$), SHOT($xx$), ROPS($xx$), ECSAD($xx$), NDHIST($xx$).
+Dertermine if the pose is correctly estimated we compare it with the ground true pose provide in the dataset
 
-For each query and target we add three levels of gaussian noise to the vertex position
+\begin{equation}\label{eq::rot}
+arccos \left(\frac{trace(\textbf{R}^{T}\hat{\textbf{R}})-1}{2}\right) \leq 7.5^\circ
+\end{equation}
+\begin{equation}\label{eq::trans}
+||\textbf{t} - \hat{\textbf{t}} || \leq 0.01m
+\end{equation}
+
+
+%For each query and target we add three levels of gaussian noise to the vertex position
 %-------------------------------------------------------------------------
 \section{Evaluation}\label{sec:evaluation}
+
+RANSAC iterations = xxxx and ICP = xxx 
+"In general the matching accuracy of a descriptor is expected to increase with increasing support radius, except in cases where occlusion and clutter are present." 
+% Figure:
+% 1 x PRC for STL scener
+% 1 x PRC for kinect scener
+% 3 x PRC for objekt grupper STL scener
+% 3 x PRC for objekt grupper Kinect scener
+% 1 x graf med emner på x aksen og max F1 eller AUC på y aksen for hver feature
+% 1 x tabel recognition rate
 
 \begin{figure*}[htp]
 \centering
@@ -297,6 +326,32 @@ For each query and target we add three levels of gaussian noise to the vertex po
 \caption{Decimination level 3 for Kinect dataset}\label{fig:kinect_d3}
 \end{minipage}
 \end{figure*}
+
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{llllll}
+\hline
+\textbf{Feature} & \textbf{STL} & \textbf{Kinect} & \textbf{Gr. 1}  &\textbf{Gr. 2} &\textbf{Gr. 3} \\
+\hline
+ \textbf{\textit{ECSAD}}  & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \textbf{\textit{FPFH}}   & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \textbf{\textit{NDHIST}} & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \textbf{\textit{ROPS}}   & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \textbf{\textit{SHOT}}   & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \textbf{\textit{SI}}     & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \textbf{\textit{USC}}    & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \textbf{\textit{PFH}}    & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \textbf{\textit{3DSC}}   & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \hline
+ \hline
+ \textbf{\textit{Mean ($\lambda$)}}   & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ \hline
+ \\
+\end{tabular}
+\caption{Overall recognition rates. \textbf{First column:} Features descriptors. \textbf{Second column:} Recognition rate for the full stl dataset. \textbf{Third column:} Recognition rate for the full kinect dataset. \textbf{Fourth column:} Recognition rate for group 1 object subset. \textbf{Fifth column:} Recognition rate for group 2 object subset. \textbf{Sixth column:} Recognition rate for group 2 object subset.}
+\label{tab:recognition}
+\end{table}
 
 %-------------------------------------------------------------------------
 \section{Discussion \& Conclusion}\label{sec:conclusion}
