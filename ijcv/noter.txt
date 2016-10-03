@@ -1,0 +1,14 @@
+NOTER FRA MØDE 30.10.2016
+- Hvad mangler vi (også for at gøre artiklen mere spændende)?
+    -- Vi skal kunne udtale os om, hvad vi har lært.
+    -- Vi skal differentiere forskellige faktorer ud, f.eks. korrelation mellem occlusion/clutter og genkendelsesrate
+    -- Måske mangler vi flere features?
+
+- Specifikke ting:
+    -- Standard deviation mangler i Tab. 2.
+    -- Brug ca. 1½ side på at redegøre grundigt for den valgte testprotokol, og motivationen for den.
+
+- Udkast til analyse:
+    -- Faktorer?
+    -- ANOVA?
+    -- Hvad er det, vi (ikke) kan?
